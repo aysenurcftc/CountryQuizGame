@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/hint"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bg"
     tools:context=".MainActivity">
+
     <ImageView
         android:id="@+id/questions"
         android:layout_width="381dp"
@@ -17,6 +18,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/questions" />
+
     <TextView
         android:id="@+id/textQuestions"
         android:layout_width="wrap_content"
@@ -30,69 +32,79 @@
         app:layout_constraintEnd_toEndOf="@+id/questions"
         app:layout_constraintStart_toStartOf="@+id/questions"
         app:layout_constraintTop_toTopOf="@+id/questions" />
+
+
     <LinearLayout
         android:id="@+id/linearLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="101dp"
+        android:layout_width="416dp"
+        android:layout_height="63dp"
+        android:layout_marginTop="12dp"
         android:gravity="center"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/questions">
+
         <Button
             android:id="@+id/optionA"
             android:layout_width="160dp"
             android:layout_height="60dp"
             android:layout_margin="10dp"
             android:backgroundTint="#C3287A"
+            android:onClick="optionA"
             android:text="A:"
-            android:textSize="18dp"
-            tools:layout_editor_absoluteX="31dp"
-            tools:layout_editor_absoluteY="358dp" />
+            android:textSize="16dp" />
+
         <Button
             android:id="@+id/optionB"
             android:layout_width="160dp"
             android:layout_height="60dp"
             android:backgroundTint="#C3287A"
+            android:onClick="optionB"
             android:text="B:"
-            android:textSize="18dp"
-            tools:layout_editor_absoluteX="31dp"
-            tools:layout_editor_absoluteY="358dp" />
+            android:textSize="16dp" />
     </LinearLayout>
+
     <LinearLayout
         android:id="@+id/linearLayout2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="414dp"
+        android:layout_height="62dp"
         android:layout_marginTop="15dp"
         android:gravity="center"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout"
         app:layout_constraintVertical_bias="0.0">
+
         <Button
             android:id="@+id/optionC"
             android:layout_width="160dp"
             android:layout_height="60dp"
             android:layout_margin="10dp"
             android:backgroundTint="#C3287A"
+            android:clickable="true"
+            android:onClick="optionC"
             android:text="C:"
-            android:textSize="18dp"
-            tools:layout_editor_absoluteX="31dp"
-            tools:layout_editor_absoluteY="358dp" />
+            android:textSize="16dp"
+           />
+
         <Button
             android:id="@+id/optionD"
             android:layout_width="160dp"
             android:layout_height="60dp"
             android:backgroundTint="#C3287A"
+            android:clickable="true"
+            android:onClick="optionD"
             android:text="D:"
             android:textColor="@color/white"
-            android:textSize="18dp"
-            tools:layout_editor_absoluteX="31dp"
-            tools:layout_editor_absoluteY="358dp" />
+            android:textSize="16dp"
+          />
+
+
     </LinearLayout>
+
     <LinearLayout
         android:id="@+id/linearLayout3"
         android:layout_width="wrap_content"
@@ -100,87 +112,139 @@
         android:layout_marginLeft="2dp"
         android:layout_marginTop="2dp"
         android:orientation="horizontal"
-        app:layout_constraintEnd_toStartOf="@+id/exit"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
+
         <ImageView
-            android:id="@+id/imageOpen"
+            android:id="@+id/startGame"
             android:layout_width="60dp"
             android:layout_height="60dp"
+            android:clickable="true"
+            android:onClick="startGame"
             app:srcCompat="@drawable/button"
             tools:layout_editor_absoluteX="35dp"
-            tools:layout_editor_absoluteY="11dp" />
+            tools:layout_editor_absoluteY="11dp"
+            android:contentDescription="startGame Button"/>
+
         <ImageView
-            android:id="@+id/imageHint"
+            android:id="@+id/hintGame"
             android:layout_width="60dp"
             android:layout_height="60dp"
+            android:clickable="true"
+            android:onClick="getHint"
             app:srcCompat="@drawable/button2"
             tools:layout_editor_absoluteX="43dp"
-            tools:layout_editor_absoluteY="68dp" />
+            tools:layout_editor_absoluteY="68dp"
+            android:contentDescription="Hint Button"/>
+
         <ImageView
-            android:id="@+id/imageScore"
+            android:id="@+id/scoreGame"
             android:layout_width="60dp"
             android:layout_height="60dp"
+            android:clickable="true"
+            android:onClick="getScore"
             app:srcCompat="@drawable/button4"
             tools:layout_editor_absoluteX="137dp"
-            tools:layout_editor_absoluteY="20dp" />
+            tools:layout_editor_absoluteY="20dp"
+            android:contentDescription="scoreGame Button"/>
+
+        <TextView
+            android:id="@+id/score"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:paddingLeft="10dp"
+            android:text="0"
+            android:textColor="#C3287A"
+            android:textSize="25dp" />
+
     </LinearLayout>
-    <ImageView
-        android:id="@+id/exit"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_margin="2dp"
+
+
+    <LinearLayout
+        android:layout_width="80dp"
+        android:layout_height="140dp"
+        android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/buttton3" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/exit"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_margin="2dp"
+            android:clickable="true"
+            android:onClick="exitGame"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/buttton3"
+            android:contentDescription="Exit Button"/>
+
+        <ImageView
+            android:id="@+id/imageView5"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="10dp"
+            android:clickable="true"
+            android:onClick="nextQuestion"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:srcCompat="@drawable/next"
+            android:contentDescription="image5 Button"/>
+
+    </LinearLayout>
+
+
     <TextView
         android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="32dp"
-        android:text="Soru: 1"
+        android:layout_marginBottom="20dp"
+        android:text="Sorular"
         android:textColor="#C3287A"
         android:textSize="25dp"
         app:layout_constraintBottom_toTopOf="@+id/questions"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent" />
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
-        android:foregroundTint="#511616"
-        android:gravity="center"
-        android:orientation="horizontal"
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="400dp"
+        android:layout_height="144dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:padding="30dp"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
-        <TextView
-            android:id="@+id/hinttext"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Hint:"
-            android:textColor="#C3287A"
-            android:textSize="20dp"
+
+        <ImageView
+            android:id="@+id/imageView7"
+            android:layout_width="410dp"
+            android:layout_height="155dp"
+            android:layout_marginTop="15dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout">
-        </TextView>
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.454"
+            app:srcCompat="@drawable/hintim2" />
+
         <TextView
             android:id="@+id/hinttextcontent"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text=":"
-            android:textColor="#C3287A"
-            android:textSize="20dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout">
-        </TextView>
-    </LinearLayout>
+            android:layout_width="212dp"
+            android:layout_height="58dp"
+            android:text="İpucu"
+            android:textSize="18dp"
+            android:gravity="center"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView7"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.501"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.363" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
 
 
