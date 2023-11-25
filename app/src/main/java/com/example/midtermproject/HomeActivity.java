@@ -12,7 +12,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class HomeActivity extends AppCompatActivity {
 
-
     private String[] questions = {
             "1. Victoria Gölü kıyısında bulunan, ulaşımı genellikle tekneyle sağlanan bu ülke hangisidir?",
             "2. Dünyaca ünlü Amazon yağmur ormanına ev sahipliği yapan bir ülkedir.",
@@ -41,7 +40,6 @@ public class HomeActivity extends AppCompatActivity {
 
     private String[] correctAnswers = {"Uganda","Brezilya", "İzlanda", "Seyşeller",
             "Lübnan","Singapur","Guatemala","Jamaika"," Kırgızistan","Karadağ"};
-
 
     private String[][] Hint = {
             {"Başkenti Kampala'dır.","Yüz ölçümü 241.038 km²'dir.","Afrika kıtasındadir.","Para birimi Uganda Şilini'dir.","Resmi dili Svahili'dir."},
@@ -145,7 +143,7 @@ public class HomeActivity extends AppCompatActivity {
         exitGame.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                finish();
+                finish(); //Activity'yi sonlandırmak için kullanılır.
             }
         });
     }
@@ -160,9 +158,10 @@ public class HomeActivity extends AppCompatActivity {
         currentQuestionIndex++;
         if (currentQuestionIndex < questions.length) {
             updateQuestion();
-
             }
-        else {}
+        else {
+
+        }
     }
 
     public void  optionA(View view){
@@ -192,6 +191,7 @@ public class HomeActivity extends AppCompatActivity {
         gameScore.setText(String.valueOf(score));
     }
 
+
     public void  optionB(View view){
 
         int selectedButtonId = view.getId();
@@ -203,7 +203,6 @@ public class HomeActivity extends AppCompatActivity {
             selectedButton.setBackgroundColor(Color.parseColor("#008000"));
             updateScore();
             setİsNotClick();
-
 
         } else {
             selectedButton.setBackgroundColor(Color.parseColor("#FF0000"));
@@ -277,7 +276,6 @@ public class HomeActivity extends AppCompatActivity {
 
 
     public void getHint(View view){
-
         TextView hinttextcontent = findViewById(R.id.hinttextcontent);
         if (hintIndex < Hint[currentQuestionIndex].length) {
             hinttextcontent.setText(Hint[currentQuestionIndex][hintIndex]);
@@ -323,7 +321,8 @@ public class HomeActivity extends AppCompatActivity {
         customNegativeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                alertDialog.dismiss();
+                alertDialog.dismiss(); //dismiss metodu kullanılarak AlertDialog kapatılıyor:
+
             }
         });
 
